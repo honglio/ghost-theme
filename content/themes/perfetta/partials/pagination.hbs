@@ -1,0 +1,12 @@
+{{!-- In this file you can override your pagination --}}
+<nav class="pagination">
+    <div>
+	    {{#if next}}
+	        <a class="older-posts" href="{{page_url next}}">&larr; 更老的</a>
+	    {{/if}}
+	   	<span class="page-number">第 {{page}} 页，共 {{pages}} 页</span>
+	    {{#if prev}}
+	        <a class="newer-posts" href="{{page_url prev}}">更新的 &rarr;</a>
+	    {{/if}}
+	</div>
+</nav>

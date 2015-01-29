@@ -1,0 +1,93 @@
+{{!< default}}
+
+<main id="post-page" class="page-wrap" role="main">
+    {{! Everything inside the #post tags pulls data from the post }}
+    <article class="{{post_class}}">
+    {{#post}}
+         {{#contentFor "metaTags"}}
+            <meta property="article:author" content="{{author.name}}">
+        {{/contentFor}}
+
+        <div>
+            <header class="post-header">
+                <h2 class="post-title">
+                    <a href="{{url}}"><span>{{{title}}}</span></a>
+                </h2>
+            </header>
+
+            <section class="post-content">
+                {{content}}
+            </section>
+
+            <footer class="post-footer">
+                <section class="share">
+                    <h4>分享此页:</h4>
+                    <!-- Baidu Button BEGIN -->
+                    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <a class="bds_qzone"></a>
+                    <a class="bds_tsina"></a>
+                    <a class="bds_tqq"></a>
+                    <a class="bds_renren"></a>
+                    <a class="bds_t163"></a>
+                    <span class="bds_more">更多</span>
+                    <a class="shareCount"></a>
+                    </div>
+                    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;mini=1&amp;uid=1287837" ></script>
+                    <script type="text/javascript" id="bdshell_js"></script>
+                    <script type="text/javascript">
+                    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+                    </script>
+                    <!-- Baidu Button END -->
+                    {{!-- <!-- Twitter Button BEGIN -->
+                    <a class="icon-twitter" href="http://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                    </a>
+                    <a class="icon-fb" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                    </a>
+                    <a class="icon-gplus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                    </a>
+                    <!-- Twitter Button END --> --}}
+                </section>
+                <section class="author">
+                    {{#if author.image}}
+                    <a href="{{author.website}}" class="post-author-avatar">
+                        <img src="{{author.image}}" alt="{{author.name}}">
+                    </a>
+                    {{/if}}
+
+                    <h3>{{author.name}}</h3>
+                    <p>{{author.bio}}</p>
+                </section>
+            </footer>
+        </div>
+
+        <aside class="post-meta">
+            <time datetime="{{date format='YYYY-MM-DD'}}">
+                {{date format="MMM DD"}}
+                <span>{{date format="YYYY"}}</span>
+            </time>
+
+            <dl>
+                <dt class="item-author">by</dt>
+                <dd>{{author}}</dd>
+
+                {{#if tags}}
+                <dt class="item-tags">tagged as:</dt>
+                <dd>
+                    <ul>
+                      {{#foreach tags}}
+                        <li><a href="{{url}}">{{name}}</a>{{#if @last}} {{else}}, {{/if}}</li>
+                      {{/foreach}}
+                    </ul>
+                </dd>
+                {{/if}}
+            </dl>
+        </aside>
+    {{/post}}
+    </article>
+</main>

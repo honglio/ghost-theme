@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="vendor/respond.min.js"></script>
+    <![endif]-->
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div id="sound-button"></div>
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    <footer class="site-footer">
+        <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a>
+        <div class="inner">
+             <section class="copyright">所有内容版权归 <a href="/">{{@blog.title}}</a> 所有 &copy; 2014 &bull; </section>
+             <section class="poweredby"> 京ICP备14015371号 </section>
+
+        </div>
+        <section><a class="button-rounded button-jump-top js-jump-top" href="#"></a></section>
+    </footer>
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! Load JavaScript files here }}
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/assets/js/external/jquery/jquery_1_7.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+    </script>
+    <script type="text/javascript" src="/assets/js/external/jquery/soundjs/SoundJS.js"></script>
+    <script type="text/javascript" src="/assets/js/external/jquery/soundjs/FlashPlugin.js"></script>
+    <script type="text/javascript" src="/assets/js/external/jquery/soundjs/HTMLAudioPlugin.js"></script>
+    <script type="text/javascript" src="/assets/js/external/jquery/soundjs/preloadjs-0.1.0.min.js"></script>
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+</body>
+</html>
