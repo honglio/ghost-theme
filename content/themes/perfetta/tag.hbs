@@ -7,7 +7,7 @@
     {{#foreach posts}}
 
     <article class="{{post_class}}" data-scroll-reveal="enter bottom">
-        <div>    
+        <div>
             <header class="post-header">
                 {{content words="0"}}
                 <h2 class="post-title">
@@ -15,9 +15,9 @@
                 </h2>
             </header>
             <section class="post-excerpt">
-                <p>{{excerpt}}&hellip;</p>
+                <p>{{excerpt words="100"}}&hellip;</p>
 
-                <a href="{{url}}" class="post-readmore">Read more</a>
+                <a href="{{url}}" class="post-readmore">阅读更多</a>
             </section>
         </div>
 
@@ -25,14 +25,14 @@
             <time datetime="{{date format='YYYY-MM-DD'}}">
                 {{date format="MMM DD"}}
                 <span>{{date format="YYYY"}}</span>
-            </time> 
+            </time>
 
             <dl>
-                <dt class="item-author">by</dt>
+                <dt class="item-author">来自</dt>
                 <dd>{{author}}</dd>
-               
+
                 {{#if tags}}
-                <dt class="item-tags">tagged as:</dt>
+                <dt class="item-tags">标签:</dt>
                 <dd>
                     <ul>
                       {{#foreach tags}}
